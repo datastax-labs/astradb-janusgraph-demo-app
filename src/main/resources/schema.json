@@ -1,0 +1,56 @@
+{
+  "propertyKeys": [
+    {
+      "name": "node_id",
+      "dataType": "Integer",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "idValue",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "idType",
+      "dataType": "String",
+      "cardinality": "SINGLE"
+    },
+    {
+      "name": "createDate",
+      "dataType": "Date",
+      "cardinality": "SINGLE"
+    }
+  ],
+  "vertexLabels": [
+    {
+      "name": "node"
+    }
+  ],
+  "edgeLabels": [
+    {
+      "name": "link",
+      "multiplicity": "SIMPLE"
+    }
+  ],
+  "vertexIndexes": [
+    {
+      "name": "node_id_comp",
+      "propertyKeys": [
+        "node_id"
+      ],
+      "composite": true,
+      "unique": true
+    },
+    {
+      "name": "idValue_idType_comp",
+      "propertyKeys": [
+        "idValue",
+        "idType"
+      ],
+      "composite": true,
+      "unique": true
+    }
+  ]
+}
+
+

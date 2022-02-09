@@ -1,0 +1,51 @@
+plugins {
+    id 'scala'
+
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+
+    // Scalafmt checks
+    id 'com.diffplug.spotless' version '5.12.5'
+}
+
+group 'org.datastax.examples'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.scala-lang:scala-library:2.12.15'
+    implementation 'org.janusgraph:janusgraph-all:0.6.0'
+    implementation 'io.netty:netty-handler:4.1.60.Final'
+    implementation 'org.apache.commons:commons-csv:1.9.0'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.datastax.examples.App'
+    }
+}
+
+shadowJar {
+    zip64 true
+}
+
+spotless {
+    scala {
+        // version and configFile are both optional
+        scalafmt('2.6.1').configFile('.scalafmt.conf')
+    }
+}
+
+compileScala {
+    dependsOn spotlessApply
+}
