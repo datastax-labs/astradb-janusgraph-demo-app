@@ -1,0 +1,14 @@
+{
+  "janusGraphPropertiesFile": "resources/janusgraph-cql.properties",
+  "schemaPath": "resources/schema.json",
+  "vertexLabelFilePathMap": {
+    "node": "resources/node.csv"
+  },
+  "edgeLabelFilePathMap": {
+    "link": {
+      "data": "resources/node_link_node_edges.csv",
+      "left": "node",
+      "right": "node"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+1. find the directly linked nodes to the node with idValue='QmklvkoMAC' and idType='dFpcSbMQnW'
+g.V().hasLabel('node').has('idValue','QmklvkoMAC').has('idType','dFpcSbMQnW').outE().otherV().valueMap()
+
+2. find the nodes at level=3 to the node with idValue='QmklvkoMAC' and idType='dFpcSbMQnW'
+g.V().hasLabel('node').has('idValue','PgbMtQbnDS').has('idType','WNotJPuyIi').outE().otherV().outE().otherV().valueMap()
+
+
